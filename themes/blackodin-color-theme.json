@@ -147,9 +147,18 @@
 			}
 		},
 		{
+			"name": "Variable Name", // gc.valid_moves, CONST, Type
+			"scope": [
+				"variable.name"
+			],
+			"settings": {
+				"foreground": "#66ddff",
+				"fontStyle": ""
+			}
+		},
+		{
 			"name": "Variable Object", // gc.valid_moves, CONST, Type
 			"scope": [
-				"variable.name",
 				"variable.other.object",
 				"variable.other.constant",
 				"variable.other.global",
@@ -160,7 +169,7 @@
 				"variable.readwrite.other.block"
 			],
 			"settings": {
-				"foreground": "#44ddff",
+				"foreground": "#22aaee",
 				"fontStyle": ""
 			}
 		},

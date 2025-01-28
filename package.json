@@ -1,0 +1,26 @@
+{
+  "name": "blackodin",
+  "publisher": "CalebSeelhoff",
+  "displayName": "blackodin",
+  "description": "Black Odin is a darker version of VS Code's Dark+ Theme, with slight modifications for readability and diverse distinguishable colors, specifically written for Odin Language Server.",
+  "version": "0.0.2",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cseelhoff/blackodin.git"
+  },
+  "engines": {
+    "vscode": "^1.0.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "blackodin",
+        "uiTheme": "vs-dark",
+        "path": "./themes/blackodin-color-theme.json"
+      }
+    ]
+  }
+}

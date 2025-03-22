@@ -3,29 +3,84 @@
 	"name": "blackodin",
 	"type": "dark",
 	"colors": {
-		"activityBar.background": "#101010",
 		"editor.background": "#000000",
-		"debugToolBar.background": "#101010",
-		"dropdown.listBackground": "#101010",
-		"editorGroupHeader.tabsBackground": "#101010",
-		"editorWidget.background": "#101010",
-		"menu.background": "#101010",
-		"notificationCenterHeader.background": "#101010",
-		"notifications.background": "#101010",
-		"peekViewEditor.background": "#101010",
-		"sideBar.background": "#101010",
-		"sideBarSectionHeader.background": "#101010",
-		"statusBar.background": "#101010",
+		"editor.foreground": "#ffffff",
+		"editor.lineHighlightBorder": "#333333",
+		"editor.lineHighlightBackground": "#0e0e0e",
+		"editor.selectionBackground": "#333333",
+		"editor.inactiveSelectionBackground": "#333333c0",
+		"editorIndentGuide.background1": "#333333",
+		"editorIndentGuide.activeBackground1": "#333333",
+		"editorLineNumber.activeForeground": "#ffffff",
+		"editorLineNumber.foreground": "#555555",		"selection.background": "#333333",
+		"sideBarTitle.foreground": "#ffffff",
+		"statusBarItem.remoteBackground": "#00000000",
+		"ports.iconRunningProcessForeground": "#00ff00",
+		"editorWhitespace.foreground": "#222222",
+		"actionBar.toggledBackground": "#222222",
+		"activityBar.background": "#111111",
+		"debugToolBar.background": "#111111",
+		"dropdown.listBackground": "#111111",
+		"editorGroupHeader.tabsBackground": "#111111",
+		"editorWidget.background": "#111111",
+		"menu.background": "#111111",
+		"notificationCenterHeader.background": "#111111",
+		"notifications.background": "#111111",
+		"peekViewEditor.background": "#111111",
+		"sideBar.background": "#111111",
+		"sideBarSectionHeader.background": "#111111",
+		"statusBar.background": "#111111",
 		"statusBar.debuggingBackground": "#004080",
-		"statusBar.noFolderBackground": "#101010",
-		"tab.activeBackground": "#080808",
-		"tab.inactiveBackground": "#181818",
-		"titleBar.activeBackground": "#101010",
-		"editor.foreground": "#eeffff",
+		"statusBar.noFolderBackground": "#111111",
+		"tab.activeBackground": "#111111",
+		"tab.inactiveBackground": "#222222",
+		"titleBar.activeBackground": "#111111",
 		"activityBarBadge.background": "#007acc",
-		"sideBarTitle.foreground": "#bbbbbb"
+		"input.background": "#000000", //co-pilot chat window
 	},
 	"tokenColors": [
+		{
+			"name": "Function declarations", // my_proc
+			"scope": [
+				"entity.name.function",
+				"support.function",
+				"support.constant.handlebars",
+				"source.powershell variable.other.member",
+				"entity.name.operator.custom-literal"
+			],
+			"settings": {
+				"foreground": "#ffff88",
+				"fontStyle": "" 
+			}
+		},
+		{
+			"name": "Types declaration and references", // struct, union, enum, distinct, ->
+			"scope": [
+				"storage.type",
+				"storage.type.function.arrow",
+				"storage.modifier", // (js) static
+				"punctuation.definition.bracket.square",
+				"meta.type.cast.expr", // (ts)
+                "meta.type.new.expr", // (ts)
+                "support.constant.math", // (ts)
+                "support.constant.dom", // (ts)
+                "support.constant.json", // (ts)
+                "entity.other.inherited-class", // (ts)
+                "punctuation.separator.namespace.ruby", // (ts)
+				"support.constant.property-value", // (css)
+                "support.constant.font-name",
+                "support.constant.media-type",
+                "support.constant.media",
+                "constant.other.color.rgb-value",
+                "constant.other.rgb-value",
+                "support.constant.color",
+				"entity.other", //HTML
+			],
+			"settings": {
+				"foreground": "#6666ff",
+				"fontStyle": ""
+			}
+		},
 		{
 			"name": "Comment", // //
 			"scope": [
@@ -33,7 +88,7 @@
 				"string.comment"
 			],
 			"settings": {
-				"foreground": "#777777"
+				"foreground": "#888888"
 			}
 		},
 		{
@@ -42,24 +97,28 @@
 				"string"
 			],
 			"settings": {
-				"foreground": "#ff9977"
+				"foreground": "#ffaa88"
 			}
 		},
 		{
-			"name": "Constant", // 20
+			"name": "Literal Number", // 20
+			"scope": "constant.numeric",
+			"settings": {
+				"foreground": "#ddffaa"
+			}
+		},
+		{
+			"name": "constant.language", // null, true, false
+			"scope": "constant.language",
+			"settings": {
+				"foreground": "#5599ff"
+			}
+		},
+		{
+			"name": "Constant",
 			"scope": "constant",
 			"settings": {
-				"foreground": "#ff9977"
-			}
-		},
-		{
-			"name": "Function name", // my_proc
-			"scope": [
-				"entity.name.function",
-				"support.function"
-			],
-			"settings": {
-				"foreground": "#ffff88"
+				"foreground": "#5599ff"
 			}
 		},
 		{
@@ -68,18 +127,20 @@
 				"string.embedded.begin",
 				"string.embedded.end",
 				"punctuation.definition.template-expression",
-				"punctuation.section.embedded"
+				"punctuation.section.embedded",
 			],
 			"settings": {
 				"foreground": "#ffff88",
 			}
 		},
 		{
-			"name": "Default Embedded Color", // period. between fields
+			"name": "Punctuation", // period. between fields
 			"scope": [
 				"punctuation.separator",
 				"punctuation.accessor",
-				"meta.brace"
+				"meta.brace",
+				"punctuation.definition.typeparameters",// type definition ( para
+				"punctuation.definition.parameters"// proc call ( para
 			],
 			"settings": {
 				"foreground": "#aaaaaa",
@@ -88,40 +149,17 @@
 		{
 			"name": "obj block definition.block", // obj definition { curly
 			"scope": [
-				"punctuation.definition.block"
+				"punctuation.definition.block",
+				"punctuation.definition.bracket.curly", // (js) {}
+				"keyword.operator", // ::, ^, &, :=, =, :
 			],
-			"settings": {
-				"foreground": "#aaaaaa",
-			}
-		},
-		{
-			"name": "typeparameters", // type definition ( para
-			"scope": [
-				"punctuation.definition.typeparameters"
-			],
-			"settings": {
-				"foreground": "#aaaaaa",
-			}
-		},
-		{
-			"name": "proc and return parameters", // proc call ( para
-			"scope": [
-				"punctuation.definition.parameters"
-			],
-			"settings": {
-				"foreground": "#aaaaaa",
-			}
-		},
-		{
-			"name": "Keyword Operator", // ::, ^, &, :=, =, :
-			"scope": "keyword.operator",
 			"settings": {
 				"foreground": "#aaaaaa",
 				"fontStyle": ""
 			}
 		},
 		{
-			"name": "keyword.control",
+			"name": "Control flow / Special keywords",
 			"scope": [
 				"keyword.control", // package if|else|or_else|when|where|for|in|not_in|defer|switch|return|or_return break|or_break|continue|or_continue fallthrough|case|dynamic do|force_inline|no_inline asm
 				"keyword.control.import", // import, foreign
@@ -129,27 +167,26 @@
 				"keyword.control.case", // case
 				"keyword.other", // proc
 				"keyword.function", // cast,transmute
+				"source.cpp keyword.operator.new",
+                "keyword.operator.new",
+                "keyword.operator.delete",
+                "keyword.other.using",
+                "keyword.other.directive.using",
+                "keyword.other.operator",
+                "entity.name.operator",
+				"entity.name.tag", // odin #partial switch case
 			],
 			"settings": {
-				"foreground": "#c678dd"
+				"foreground": "#dd77ff"
 			}
 		},
 		{
-			"name": "Types", // struct, union, enum, distinct, ->
+			"name": "Variable name", // my_var
 			"scope": [
-				"storage.type",
-				"storage.type.function.arrow",
-				"punctuation.definition.bracket.square"
-			],
-			"settings": {
-				"foreground": "#6688ff",
-				"fontStyle": ""
-			}
-		},
-		{
-			"name": "Variable Name", // gc.valid_moves, CONST, Type
-			"scope": [
-				"variable.name"
+				"variable.name",
+				"variable.object.property",
+				"variable.parameter", // (js) function parameters
+				"meta.object-literal.key"
 			],
 			"settings": {
 				"foreground": "#66ddff",
@@ -157,41 +194,35 @@
 			}
 		},
 		{
-			"name": "Variable Object", // gc.valid_moves, CONST, Type
+			"name": "Constants and enums", // CONST, Type
 			"scope": [
 				"variable.other.object",
+                "variable.other.enummember",
 				"variable.other.constant",
 				"variable.other.global",
 				"variable.other.readwrite.class",
 				"variable.other.readwrite.instance",
 				"variable.other.readwrite.batchfile",
 				"variable.readwrite",
-				"variable.readwrite.other.block"
+				"variable.readwrite.other.block",
+				"variable.other", // (js) global variables
 			],
 			"settings": {
-				"foreground": "#22aaee",
+				"foreground": "#22aaff",
 				"fontStyle": ""
 			}
 		},
 		{
-			"name": "Package Name / Namespace", // My_Class
+			"name": "Class", // My_Class, Package_Name, Namespace
 			"scope": [
-				"entity.name.type.module",
-				"entity.name.namespace"
-			],
-			"settings": {
-				"foreground": "#44ffbb",
-				"fontStyle": "underline",
-			}
-		},
-		{
-			"name": "Class", // My_Class
-			"scope": [
-				"entity.name.class",
-				"entity.name.module",
+				"support.class",
 				"entity.name.type",
-				"storage.identifier",
-				"support.class"
+				"entity.name.class",
+				"entity.name.type.module", // odin
+				"entity.name.namespace", // odin
+				"entity.name.module", // odin
+				"storage.identifier", // odin
+				// "entity.name", // HTML
 			],
 			"settings": {
 				"foreground": "#44ffbb",
@@ -202,12 +233,33 @@
 			"name": "Library class/type", // int, bool
 			"scope": [
 				"support.type",
-				"support.variable"
+				"support.variable",
+				"keyword.type"
 			],
 			"settings": {
-				"foreground": "#00dd99",
+				"foreground": "#00ff99",
 				"fontStyle": ""
 			}
-		}
-	]
+		},
+		{
+			"name": "variable",
+			"scope": [
+				"variable", // (python) variable name
+                "meta.definition.variable.name",
+				"meta.object-literal.key", //(ts)
+                "entity.name.variable",
+			],
+			"settings": {
+				"foreground": "#66ddff",
+				"fontStyle": ""
+			}
+		},
+	],
+    "semanticHighlighting": true,
+    "semanticTokenColors": {
+        "newOperator": "#ff99ff",
+        "stringLiteral": "#ffaa77",
+        "customLiteral": "#ffff88",
+        "numberLiteral": "#ddffaa"
+    }
 }

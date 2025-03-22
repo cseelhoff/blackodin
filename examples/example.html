@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theme Demo</title>
+    <!-- CSS style block showing theme colors -->
+    <style>
+        :root { --primary: #4a8fe7; --text: #333; }
+        body { font-family: system-ui, sans-serif; color: var(--text); }
+        .container { display: flex; gap: 1rem; padding: 1.5rem; }
+        #main-header { color: var(--primary); font-weight: bold; }
+    </style>
+    <script>
+        // JavaScript showing theme colors
+        document.addEventListener('DOMContentLoaded', () => {
+            const toggle = document.querySelector('#theme-toggle');
+            toggle?.addEventListener('click', () => {
+                document.documentElement.dataset.theme = 
+                    document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+            });
+        });
+    </script>
+</head>
+<body>
+    <!-- Main content container -->
+    <div class="container" role="main" id="content">
+        <h1 id="main-header">Color Theme Demo</h1>
+        <p>This demonstrates <em>HTML</em> syntax highlighting in <strong>VS Code</strong>.</p>
+        <a href="https://code.visualstudio.com/" target="_blank" rel="noopener">VS Code</a>
+        
+        <form method="post" action="/submit" autocomplete="off">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required placeholder="Enter username">
+            <button type="submit" disabled>Submit</button>
+        </form>
+        
+        <img src="image.png" alt="Sample image" width="200" height="100">
+        <button id="theme-toggle" aria-label="Toggle theme">Toggle theme</button>
+    </div>
+</body>
+</html>

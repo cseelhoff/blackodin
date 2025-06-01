@@ -5,10 +5,11 @@
 	"colors": {
 		"editor.background": "#000000",
 		"editor.foreground": "#ffffff",
+		"editor.inactiveSelectionBackground": "#ffffff80",
 		"editor.lineHighlightBorder": "#333333",
 		"editor.lineHighlightBackground": "#0e0e0e",
-		"editor.selectionBackground": "#333333",
-		"editor.inactiveSelectionBackground": "#333333c0",
+		"editor.selectionBackground": "#666666", // selection color when you click and drag to select
+		"editor.wordHighlightBackground": "#ffffff40", // word highlight color
 		"editorIndentGuide.background1": "#333333",
 		"editorIndentGuide.activeBackground1": "#333333",
 		"editorLineNumber.activeForeground": "#ffffff",
@@ -29,14 +30,13 @@
 		"notifications.background": "#111111",
 		"peekViewEditor.background": "#111111",
 		"sideBar.background": "#111111",
-		"sideBar.border": "#333333",
 		"sideBarSectionHeader.background": "#111111",
 		"statusBar.background": "#111111",
 		"statusBar.debuggingBackground": "#004080",
 		"statusBar.noFolderBackground": "#111111",
-		"tab.activeBackground": "#111111",
+		"tab.activeBackground": "#002040",
 		"tab.activeBorder": "#ffffff",
-		"tab.inactiveBackground": "#222222",
+		"tab.inactiveBackground": "#000000",
 		"titleBar.activeBackground": "#111111",
 		"activityBarBadge.background": "#007acc",
 		"input.background": "#000000", //co-pilot chat window
@@ -64,19 +64,19 @@
 				"storage.modifier", // (js) static
 				"punctuation.definition.bracket.square",
 				"meta.type.cast.expr", // (ts)
-                "meta.type.new.expr", // (ts)
-                "support.constant.math", // (ts)
-                "support.constant.dom", // (ts)
-                "support.constant.json", // (ts)
-                "entity.other.inherited-class", // (ts)
-                "punctuation.separator.namespace.ruby", // (ts)
+				"meta.type.new.expr", // (ts)
+				"support.constant.math", // (ts)
+				"support.constant.dom", // (ts)
+				"support.constant.json", // (ts)
+				"entity.other.inherited-class", // (ts)
+				"punctuation.separator.namespace.ruby", // (ts)
 				"support.constant.property-value", // (css)
-                "support.constant.font-name",
-                "support.constant.media-type",
-                "support.constant.media",
-                "constant.other.color.rgb-value",
-                "constant.other.rgb-value",
-                "support.constant.color",
+				"support.constant.font-name",
+				"support.constant.media-type",
+				"support.constant.media",
+				"constant.other.color.rgb-value",
+				"constant.other.rgb-value",
+				"support.constant.color",
 				"entity.other", //HTML
 			],
 			"settings": {
@@ -171,12 +171,12 @@
 				"keyword.other", // proc
 				"keyword.function", // cast,transmute
 				"source.cpp keyword.operator.new",
-                "keyword.operator.new",
-                "keyword.operator.delete",
-                "keyword.other.using",
-                "keyword.other.directive.using",
-                "keyword.other.operator",
-                "entity.name.operator",
+				"keyword.operator.new",
+				"keyword.operator.delete",
+				"keyword.other.using",
+				"keyword.other.directive.using",
+				"keyword.other.operator",
+				"entity.name.operator",
 				"entity.name.tag", // odin #partial switch case
 			],
 			"settings": {
@@ -200,7 +200,7 @@
 			"name": "Constants and enums", // CONST, Type
 			"scope": [
 				"variable.other.object",
-                "variable.other.enummember",
+				"variable.other.enummember",
 				"variable.other.constant",
 				"variable.other.global",
 				"variable.other.readwrite.class",
@@ -248,9 +248,9 @@
 			"name": "variable",
 			"scope": [
 				"variable", // (python) variable name
-                "meta.definition.variable.name",
+				"meta.definition.variable.name",
 				"meta.object-literal.key", //(ts)
-                "entity.name.variable",
+				"entity.name.variable",
 			],
 			"settings": {
 				"foreground": "#66ddff",
@@ -258,11 +258,11 @@
 			}
 		},
 	],
-    "semanticHighlighting": true,
-    "semanticTokenColors": {
-        "newOperator": "#ff99ff",
-        "stringLiteral": "#ffaa77",
-        "customLiteral": "#ffff88",
-        "numberLiteral": "#ddffaa"
-    }
+	"semanticHighlighting": true,
+	"semanticTokenColors": {
+		"newOperator": "#ff99ff",
+		"stringLiteral": "#ffaa77",
+		"customLiteral": "#ffff88",
+		"numberLiteral": "#ddffaa"
+	}
 }

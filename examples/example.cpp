@@ -10,8 +10,6 @@
 
 #define MAX_SIZE 100
 constexpr double PI = 3.14159265359;
-
-// Enum and structure
 enum class Status { PENDING, RUNNING, COMPLETED, FAILED };
 
 struct Point {
@@ -22,13 +20,11 @@ struct Point {
         return std::sqrt(std::pow(x - other.x, 2) + std::pow(y - other.y, 2));
     }
 };
-
 // Class with templates
 template<typename T>
 class DataProcessor {
 public:
     explicit DataProcessor(const std::string& name) : name_(name) {}
-    
     template<typename U = T>
     auto process(const U& value) {
         if constexpr (std::is_arithmetic_v<U>) {
@@ -41,7 +37,6 @@ public:
 private:
     std::string name_;
 };
-
 // Main function with various elements
 int main() {
     // Variable declarations and literals

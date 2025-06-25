@@ -36,12 +36,22 @@
 		"statusBar.noFolderBackground": "#111111",
 		"tab.activeBackground": "#002040",
 		"tab.activeBorder": "#ffffff",
-		"tab.inactiveBackground": "#000000",
+		"tab.inactiveBackground": "#111111",
 		"titleBar.activeBackground": "#111111",
 		"activityBarBadge.background": "#007acc",
 		"input.background": "#000000", //co-pilot chat window
 	},
 	"tokenColors": [
+		{
+			"name": "entity.name.function.decorator", // (gdscript) @export
+			"scope": [
+				"entity.name.function.decorator"
+			],
+			"settings": {
+				"foreground": "#ffaa77",
+				"fontStyle": "" 
+			}
+		},
 		{
 			"name": "Function declarations", // my_proc
 			"scope": [
@@ -52,13 +62,16 @@
 				"entity.name.operator.custom-literal"
 			],
 			"settings": {
-				"foreground": "#ffff88",
+				"foreground": "#33bbff",//changing from yellow #ffff88 to gdscript light blue. old lt blue was variable_name
 				"fontStyle": "" 
 			}
 		},
 		{
 			"name": "Types declaration and references", // struct, union, enum, distinct, ->
 			"scope": [
+				"keyword.language", //(gdscript) class_name, extend, -> void
+				"storage.type.var",//gdscript "var"
+				"storage.type.is",//(gdscript) "is"
 				"storage.type",
 				"storage.type.function.arrow",
 				"storage.modifier", // (js) static
@@ -80,7 +93,7 @@
 				"entity.other", //HTML
 			],
 			"settings": {
-				"foreground": "#6666ff",
+				"foreground": "#ff7788", //changing to match gdscript light red. previously purlple "#6666ff"
 				"fontStyle": ""
 			}
 		},
@@ -100,32 +113,32 @@
 				"string"
 			],
 			"settings": {
-				"foreground": "#ffaa88"
+				"foreground": "#ffeeaa" //changing from visual studio orange #ffaa88 to gdscript pale yellow
 			}
 		},
 		{
 			"name": "Literal Number", // 20
 			"scope": "constant.numeric",
 			"settings": {
-				"foreground": "#ddffaa"
+				"foreground": "#99FFEE" //change from green-yellow to gdscript blue-green
 			}
 		},
 		{
 			"name": "constant.language", // null, true, false
 			"scope": "constant.language",
 			"settings": {
-				"foreground": "#5599ff"
+				"foreground": "#ff7788" //changing from 5599ff to gdscript red
 			}
 		},
 		{
 			"name": "Constant",
 			"scope": "constant",
 			"settings": {
-				"foreground": "#5599ff"
+				"foreground": "#ff7788" //changing from 5599ff to gdscript red
 			}
 		},
 		{
-			"name": "Embedded String Begin/End", // my_func() - para
+			"name": "Embedded String Begin/End", // my_func() - parathesis
 			"scope": [
 				"string.embedded.begin",
 				"string.embedded.end",
@@ -157,7 +170,7 @@
 				"keyword.operator", // ::, ^, &, :=, =, :
 			],
 			"settings": {
-				"foreground": "#aaaaaa",
+				"foreground": "#ccccff",//changing from gray #aaaaaa
 				"fontStyle": ""
 			}
 		},
@@ -180,15 +193,25 @@
 				"entity.name.tag", // odin #partial switch case
 			],
 			"settings": {
-				"foreground": "#dd77ff"
+				"foreground": "#ffaa77" // making orange like gdscipt. previously #dd77ff or paler #eeaaff
 			}
 		},
 		{
-			"name": "Variable name", // my_var
+			"name": "variable.parameter.function", // my_func(param1)
 			"scope": [
-				"variable.name",
+				"variable.parameter"
+			],
+			"settings": {
+				"foreground": "#dddddd",
+				"fontStyle": ""
+			}
+		},
+		{
+			"name": "Variable property", // my_var.prop
+			"scope": [
+				// "variable.name",
 				"variable.object.property",
-				"variable.parameter", // (js) function parameters
+				// "variable.parameter", // (js) function parameters
 				"meta.object-literal.key"
 			],
 			"settings": {
@@ -199,6 +222,7 @@
 		{
 			"name": "Constants and enums", // CONST, Type
 			"scope": [
+				"variable.name",
 				"variable.other.object",
 				"variable.other.enummember",
 				"variable.other.constant",
@@ -208,10 +232,10 @@
 				"variable.other.readwrite.batchfile",
 				"variable.readwrite",
 				"variable.readwrite.other.block",
-				"variable.other", // (js) global variables
+				"variable.other", // (js) global variables also gdscript variables
 			],
 			"settings": {
-				"foreground": "#22aaff",
+				"foreground": "#ffffff",//change closer to gdscript white/pure white. may revert later. previously light blue #22aaff
 				"fontStyle": ""
 			}
 		},
@@ -219,6 +243,7 @@
 			"name": "Class", // My_Class, Package_Name, Namespace
 			"scope": [
 				"support.class",
+				"entity.name.type.class", //gdscript - class or primitive type
 				"entity.name.type",
 				"entity.name.class",
 				"entity.name.type.module", // odin
@@ -228,19 +253,19 @@
 				// "entity.name", // HTML
 			],
 			"settings": {
-				"foreground": "#44ffbb",
+				"foreground": "#44ffaa",
 				"fontStyle": "underline",
 			}
 		},
 		{
-			"name": "Library class/type", // int, bool
+			"name": "Library class/type", // int, bool //similar to "class", but primitive
 			"scope": [
 				"support.type",
 				"support.variable",
 				"keyword.type"
 			],
 			"settings": {
-				"foreground": "#00ff99",
+				"foreground": "#44ffaa", //changing color to match class. no underline.
 				"fontStyle": ""
 			}
 		},
@@ -253,7 +278,17 @@
 				"entity.name.variable",
 			],
 			"settings": {
-				"foreground": "#66ddff",
+				"foreground": "#ffffff",//changed from 66ddff
+				"fontStyle": ""
+			}
+		},
+		{
+			"name": "variable.other.property",
+			"scope": [
+				"variable.other.property" // (gdscript) variable.some_property
+			],
+			"settings": {
+				"foreground": "#CCAAFF",
 				"fontStyle": ""
 			}
 		},
